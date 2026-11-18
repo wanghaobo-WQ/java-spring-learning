@@ -1,0 +1,12 @@
+# 编译输出
+target/
+out/
+
+# IDEA 配置
+.idea/
+*.iml
+
+# 日志与系统文件
+*.log
+.DS_Store
+Thumbs.db

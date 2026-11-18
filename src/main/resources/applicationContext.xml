@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ===== ch2.4.2 静态工厂 ===== -->
+    <!-- factory-method 指定用哪个 static 方法来 new User -->
+    <bean id="user"
+          class="com.zhangguowen.UserStaticFactory"
+          factory-method="createUser"/>
+
+    <!-- ===== ch2.4.3 实例工厂 ===== -->
+    <!-- 第一步：先把工厂类本身注册为 bean，Spring 会 new 出它 -->
+    <bean id="userInstanceFactory"
+          class="com.zhangguowen.UserInstanceFactory"/>
+    <!-- 第二步：用 factory-bean 引用上面那个工厂 bean，再调它的 createUser() 方法 -->
+    <bean id="user2"
+          factory-bean="userInstanceFactory"
+          factory-method="createUser"/>
+</beans>
